@@ -8,6 +8,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import RobustScaler
 from sklearn.metrics import classification_report, confusion_matrix
 import tensorflow as t
+from tensorflow.keras.models import save_model
 
 file = 'winequality-red.csv'
 DATA = pd.read_csv(file)
@@ -81,6 +82,5 @@ losses[['accuracy','val_accuracy']].plot()
 print(model.metrics_names)
 print(model.evaluate(X_test,y_test_cat,verbose=0))
 
-from tensorflow.keras.models import save_model
 
 save_model(model, 'wine_model')
